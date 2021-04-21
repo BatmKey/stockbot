@@ -1,0 +1,86 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- stock_price:
+    use_entities: true
+- inquire:
+    use_entities: true
+- waste:
+    use_entities: true
+- ask_function:
+    use_entities: true
+entities:
+- stock
+slots:
+  stock:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: Greetings! I can help you with stock information. How can I help you ?
+  - text: Hello, I'm your stock assistant. May I help you ?
+  - text: hey, how's going ? what can I do for you today ?
+  utter_intro:
+  - text: It's such an honor to take your service.
+  utter_function_menu:
+  - text: Currently I can help you with --> 1. Get key stats of stocks 2. Get historical data 3. And give you advice on certain stock after analyzing its data.
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye.See you!!
+  - text: Good to see you!!
+  utter_iamabot:
+  - text: I'm your stock assistant.
+  utter_ask_stock:
+  - text: Which stock price you want?
+  - text: For What Stock?
+  - text: Can you tell me the Stock name in order to get the price?
+  utter_affirm:
+  - text: Done!!
+  - text: Great!!
+  utter_default:
+  - text: Sorry can't understand.Please try again!!
+  utter_awesome:
+  - text: Awesome, thanks! 👍
+  - text: Sweet, thank you! 😄
+  - text: Thanks! 👌
+  - text: Cool, thank you
+  utter_can_do:
+  - text: Sure thing!
+  - text: Can do!
+  - text: You got it.
+actions:
+- utter_greet
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- action_stock_price
+- utter_ask_stock
+- utter_affirm
+- utter_intro
+- utter_default
+forms: {}
+e2e_actions: []
