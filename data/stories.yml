@@ -1,0 +1,60 @@
+version: "2.0"
+stories:
+- story: historical path solo
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_historical_data_stock
+  - action: utter_ask_historical_data_time
+  - intent: select_historical_time
+  - action: action_historical_price
+  - intent: waste
+  - action: utter_waster
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: General path to go
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_function
+  - action: utter_function_menu
+  - intent: ask_stock_price
+  - action: action_stock_price
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_historical_data_stock
+  - action: utter_ask_historical_data_time
+  - intent: select_historical_time
+  - action: action_historical_price
+  - intent: waste
+  - action: utter_waster
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: waste
+  steps:
+    - intent: waste
+    - action: utter_waster
+
+- story: stock price
+  steps:
+    - intent: ask_stock_price
+    - action: action_stock_price 
+
+- story: historical price
+  steps:
+    - intent: ask_historical_data_stock
+    - action: utter_ask_historical_data_time
+
+
+
+
+
+  
+
+
+
+
+

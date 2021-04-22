@@ -2,7 +2,7 @@ version: '2.0'
 config:
   store_entities_as_slots: true
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 300
   carry_over_slots_to_new_session: true
 intents:
 - greet:
@@ -27,10 +27,24 @@ intents:
     use_entities: true
 - ask_function:
     use_entities: true
+- ask_historical_data_stock:
+    use_entities: true
+- select_historical_data_time:
+    use_entities: true
+- ask_stock_price:
+    use_entities: true
+- select_historical_time:
+    use_entities: true
 entities:
 - stock
+- date_message
 slots:
   stock:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  date_message:
     type: rasa.shared.core.slots.TextSlot
     initial_value: null
     auto_fill: true
@@ -43,11 +57,15 @@ responses:
   utter_intro:
   - text: It's such an honor to take your service.
   utter_function_menu:
-  - text: Currently I can help you with --> 1. Get key stats of stocks 2. Get historical data 3. And give you advice on certain stock after analyzing its data.
+  - text: Currently I can help you with 1. checkout the price of stocks 2. Get historical data 3. Give you some advice.4. Bragging !!
   utter_did_that_help:
   - text: Did that help you?
   utter_happy:
   - text: Great, carry on!
+  - text: Awesome, thanks! 👍
+  - text: Sweet, thank you! 😄
+  - text: Thanks! 👌
+  - text: Cool, thank you
   utter_goodbye:
   - text: Bye.See you!!
   - text: Good to see you!!
@@ -55,22 +73,24 @@ responses:
   - text: I'm your stock assistant.
   utter_ask_stock:
   - text: Which stock price you want?
-  - text: For What Stock?
+  - text: For What Stock ?
   - text: Can you tell me the Stock name in order to get the price?
+  utter_ask_historical_data_time:
+  - text: Which time of data you want to query ?
   utter_affirm:
-  - text: Done!!
-  - text: Great!!
+  - text: Done !!
+  - text: Great !!
+  utter_waster:
+  - text: GOOD, good.. umm... make-up words, you can total play with me, It's not silly at all I guess.
   utter_default:
-  - text: Sorry can't understand.Please try again!!
-  utter_awesome:
-  - text: Awesome, thanks! 👍
-  - text: Sweet, thank you! 😄
-  - text: Thanks! 👌
-  - text: Cool, thank you
+  - text: Oh, Maybe I should give you a Manual before you talk to me, Cause I'm still a baby, you know.
   utter_can_do:
   - text: Sure thing!
   - text: Can do!
   - text: You got it.
+  utter_historical_result:
+  - image: '{image}'
+    text: Here are the historical Figure of {stock} from {start_time} to {end_time}
 actions:
 - utter_greet
 - utter_did_that_help
@@ -82,5 +102,9 @@ actions:
 - utter_affirm
 - utter_intro
 - utter_default
+- action_historical_price
+- utter_historical_result
+- utter_cheer_up
+- utter_waster
 forms: {}
 e2e_actions: []

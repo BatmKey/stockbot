@@ -1,0 +1,63 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - Hey
+    - Hi
+- intent: ask_historical_data_stock
+  examples: |
+    - historical data of [TSLA](stock)
+    - hotrical data of [TSLA](stock)
+    - data of [TSLA](stock)
+    - [TSLA](stock) historical
+    - historical data of [tesla](stock)
+- intent: select_historical_time
+  examples: |
+    - [2020-04-11 to 2021-03-11](date_message)
+    - from [2020-04-11 to 2021-3-01](date_message)
+    - [2020-04-11 and 2021-03-01](date_message)
+    - Emm, from [2020-04-11 to 2021-03-01](date_message)
+    - From [Jan 1 2021 to Feb 2 2021](date_message)
+- intent: ask_function
+  examples: |
+    - what can you do ?
+    - Ok, what can you do ?
+    - what can you do for me ?
+    - what can I get from you ?
+
+- intent: ask_stock_price
+  examples: |
+    - what is the stock price of [AAPL](stock)
+    - what about [TSLA](stock)
+    - stock price of [GOOG](stock)
+    - tell me about hte price of [moicrosoft](stock)
+    - what about [tsla](stock)
+    - what about [tesla](stock)
+    - what is the stock price of  [aapl](stock)
+    - tell me the price of [tesla](stock)
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+- intent: mood_great
+  examples: |
+    - ok
+    - perfect
+    - very good
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I'm good
+- intent: waste
+  examples: |
+    - vhadgjb
+    - jhsbj
+    - kjjkl
+    - ryusjh
+    - hokjs
+    - hjhkjlk
+    - bmnabkj
