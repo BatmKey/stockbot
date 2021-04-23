@@ -1,3 +1,7 @@
+## 部分效果展示
+![stockbot](https://media.giphy.com/media/gYbyHRMfm1AJCEPGfV/giphy.gif)
+
+#### 技术实现
 提取用户意图并且构建实体, 提取stock entity查询EXI获得数据并响应
 预测用户意图，并且提供缺省回答
 状态机的多轮多次查询技术，正则表达式提取用户意图日期

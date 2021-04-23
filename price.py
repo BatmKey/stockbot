@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
-os.environ['IEX_TOKEN'] = "sk_a9ccbee140454466bf7da631df08acc0"
+os.environ['IEX_TOKEN'] = "sk_a2186e703a824d92a0df653118efbda1"
 from datetime import datetime
 import dateparser
 import re
